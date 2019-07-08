@@ -10,6 +10,11 @@ class Ball {
         this.speed++;
     }
 
+    ballMove = () =>{
+        this.postionX -= this.directionX;
+        this.postionY -= this.directionY;
+    }
+
     changeDirectionX = () => {
         this.directionX = !this.directionX;
     }

@@ -11,14 +11,20 @@ function gameGenerator() {
         for (let i = 0; i < 4; i++) {
             let row = 5;
             for (let j = 0; j < 10; j++) {
-                blockBoard.push(new Blocks(row, column, i + 1))
+                blockBoard.push(new Blocks(row, column, i + 1, index))
                 blockBoard[index].createBlock();
-
                 row += 80;
                 index++;
-
             }
             column += 30;
         }
+        
+        let ball = new Ball(((arena.offsetWidth / 2) - 5), ((arena.offsetHeight / 2) - 5));
+        ball.ballGenerator();
+
+        let desk = new Desk((arena.offsetWidth/2) - 50)
+        desk.deskGenerator();
     }
+
 }
+

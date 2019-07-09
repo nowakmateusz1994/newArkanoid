@@ -1,25 +1,34 @@
 class Ball {
-    constructor(postionX, postionY, speed, directionX, directionY) {
+    constructor(postionX, postionY, speed = 1, directionX = 1, directionY = 1) {
         this.postionX = postionX;
         this.postionY = postionY;
         this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
     }
-    avergeSpeed = () => {
-        this.speed++;
-    }
+    // avergeSpeed = () => {
+    //     this.speed++;
+    // }
 
-    ballMove = () =>{
-        this.postionX -= this.directionX;
-        this.postionY -= this.directionY;
-    }
+    // ballMove = () => {
+    //     this.postionX -= this.directionX;
+    //     this.postionY -= this.directionY;
+    // }
 
-    changeDirectionX = () => {
-        this.directionX = !this.directionX;
-    }
-    changeDirectionY = () => {
-        // let tabDirectionY = [1, 0.9, 0.8, 0.7]
-        this.directionY = !this.directionY;
+    // changeDirectionX = () => {
+    //     this.directionX = !this.directionX;
+    // }
+    // changeDirectionY = () => {
+    //     // let tabDirectionY = [1, 0.9, 0.8, 0.7]
+    //     this.directionY = !this.directionY;
+    // }
+
+    ballGenerator = () => {
+        this.ball = document.createElement('div');
+        this.ball.classList.add('ball');
+        this.ball.style.left = this.postionX + 'px';
+        this.ball.style.top = this.postionY + 'px';
+        arena.appendChild(this.ball);
+        // console.log(this)
     }
 }

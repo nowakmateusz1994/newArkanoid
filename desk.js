@@ -10,4 +10,12 @@ class Desk {
     changePostionXtoRight = () => {
         this.positionX++;
     }
+
+    deskGenerator = () => {
+        this.desk = document.createElement('div');
+        this.desk.classList.add('desk');
+        this.desk.style.left = this.positionX + 'px';
+        arena.appendChild(this.desk);
+        // console.log(this)
+    }
 }

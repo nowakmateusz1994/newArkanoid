@@ -3,6 +3,8 @@ let blockBoard = [];
 let index = 0;
 let start = document.querySelector('button');
 let isGameOn = false;
+
+
 start.addEventListener('click', gameGenerator)
 function gameGenerator() {
     if (!isGameOn) {
@@ -18,12 +20,8 @@ function gameGenerator() {
             }
             column += 30;
         }
-        
-        let ball = new Ball(((arena.offsetWidth / 2) - 5), ((arena.offsetHeight / 2) - 5));
-        ball.ballGenerator();
 
-        let desk = new Desk((arena.offsetWidth/2) - 50)
-        desk.deskGenerator();
+        index = setInterval(ball.ballMove, 0.0005)
     }
 
 }

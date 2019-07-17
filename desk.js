@@ -19,3 +19,6 @@ class Desk {
         // console.log(this)
     }
 }
+
+const desk = new Desk((arena.offsetWidth / 2) - 40)
+desk.deskGenerator();

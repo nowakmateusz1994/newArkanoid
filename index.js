@@ -4,6 +4,20 @@ let index = 0;
 let start = document.querySelector('button');
 let isGameOn = false;
 
+let gameStart = () => {
+    ball.ballMove();
+    blockBoard.map((block) => {
+        if (
+            ((ball.postionX >= block.postionX) && (ball.postionX <= (block.postionX + block.blockWidth)))
+            &&
+            ((ball.postionY >= block.postionY) && (ball.postionY <= (block.postionY + block.blockHeight)))
+        ){
+            block.blockLifes();
+            ball.changeDirectionX();
+            ball.changeDirectionY();
+        }
+    })
+}
 
 start.addEventListener('click', gameGenerator)
 function gameGenerator() {
@@ -21,8 +35,9 @@ function gameGenerator() {
             column += 30;
         }
 
-        index = setInterval(ball.ballMove, 0.0005)
+        index = setInterval(gameStart, 0.005)
     }
 
 }
+
 

@@ -13,7 +13,7 @@ let gameStart = () => {
             ((ball.postionY >= block.postionY) && (ball.postionY <= (block.postionY + block.blockHeight)))
         ){
             block.blockLifes();
-            ball.changeDirectionX();
+            // ball.changeDirectionX();
             ball.changeDirectionY();
         }
     })
@@ -39,5 +39,3 @@ function gameGenerator() {
     }
 
 }
-
-

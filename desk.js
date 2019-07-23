@@ -4,11 +4,13 @@ class Desk {
     }
 
     changePostionXtoLeft = () => {
-        this.positionX--;
+        this.positionX -= 10;
+        this.desk.style.left = this.positionX + 'px';
     }
 
     changePostionXtoRight = () => {
-        this.positionX++;
+        this.positionX += 10;
+        this.desk.style.left = this.positionX + 'px';
     }
 
     deskGenerator = () => {
@@ -22,3 +24,14 @@ class Desk {
 
 const desk = new Desk((arena.offsetWidth / 2) - 40)
 desk.deskGenerator();
+
+window.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight') {
+        if ((desk.positionX + desk.desk.offsetWidth) <= arena.offsetWidth)
+            desk.changePostionXtoRight();
+    } else if (event.key === 'ArrowLeft') {
+        if (desk.positionX >= 0) {
+            desk.changePostionXtoLeft();
+        }
+    }
+});

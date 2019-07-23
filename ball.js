@@ -18,7 +18,11 @@ class Ball {
         }
         if(this.postionY === 0 || this.postionY === arena.offsetHeight){
             this.changeDirectionY();
-            
+        }
+        if((( desk.positionX <= ball.postionX ) && (ball.postionX <= (desk.postionX + desk.desk.blockWidth)))&&(((
+            desk.desk.offsetTop <= ball.postionY) && (ball.postionY <= (desk.desk.offsetTop + desk.desk.offsetHeight)))))
+        {
+            this.changeDirectionY();
         }
     }
 

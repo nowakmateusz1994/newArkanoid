@@ -6,6 +6,18 @@ let isGameOn = false;
 
 let gameStart = () => {
     ball.ballMove();
+
+    if(
+        desk.positionX<=ball.postionX  && ball.positionX <= (desk.positionX + desk.desk.offsetWidth)
+       &&
+       desk.positionY <= ball.postionY  && ball.postionY <= (desk.positionY + desk.desk.offsetHeight)
+   )
+   {
+       // ball.changeDirectionY();
+       // ball.changeDirectionX();
+       console.log('asd')
+   }
+   
     blockBoard.map((block) => {
         if (
             ((ball.postionX >= block.postionX) && (ball.postionX <= (block.postionX + block.blockWidth)))
@@ -16,7 +28,9 @@ let gameStart = () => {
             // ball.changeDirectionX();
             ball.changeDirectionY();
         }
+
     })
+
 }
 
 start.addEventListener('click', gameGenerator)
@@ -35,7 +49,7 @@ function gameGenerator() {
             column += 30;
         }
 
-        index = setInterval(gameStart, 0.005)
+        index = setInterval(gameStart, 0.05)
     }
 
 }

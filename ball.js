@@ -5,6 +5,7 @@ class Ball {
         this.speed = speed;
         this.directionX = directionX;
         this.directionY = directionY;
+        this.desk = desk;
     }
 
     ballMove = () => {
@@ -13,20 +14,15 @@ class Ball {
         this.ball.style.left = this.postionX + 'px';
         this.ball.style.top = this.postionY + 'px';
 
+
         if(this.postionX === 0 || this.postionX === arena.offsetWidth){
             this.changeDirectionX();
         }
+
         if(this.postionY === 0 || this.postionY === arena.offsetHeight){
             this.changeDirectionY();
         }
-        if(
-            ((ball.postionX >= desk.postionX) && (ball.postionX <= (desk.postionX + desk.desk.blockWidth)))
-            &&
-            ((ball.postionY >= desk.postionY) && (ball.postionY <= (desk.postionY + desk.desk.offsetHeight)))
-        )
-        {
-            this.changeDirectionY();
-        }
+
     }
 
     changeDirectionX = () => {
@@ -47,5 +43,6 @@ class Ball {
     }
 }
 
-const ball = new Ball(((arena.offsetWidth / 2) - 5), ((arena.offsetHeight / 2) - 5));
+const ball = new Ball(((arena.offsetWidth / 2) - 5), ((arena.offsetHeight / 2) - 5), desk);
 ball.ballGenerator();
+

@@ -1,6 +1,9 @@
 class Desk {
     constructor(positionX) {
         this.positionX = positionX;
+        this.positionY = 0;
+        this.deskWidth = 0;
+        this.deskHeight = 0;
     }
 
     changePostionXtoLeft = () => {
@@ -18,7 +21,10 @@ class Desk {
         this.desk.classList.add('desk');
         this.desk.style.left = this.positionX + 'px';
         arena.appendChild(this.desk);
-        // console.log(this)
+        
+        this.positionY = this.desk.offsetTop;
+        this.deskWidth = this.desk.offsetWidth;
+        this.deskHeight = this.desk.offsetHeight;
     }
 }
 

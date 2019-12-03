@@ -13,6 +13,25 @@
             box-sizing: border-box;
         }
 
+        .buttonAgain{
+            background: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            color:white;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px black;
+            padding: 1rem;
+            height: 5rem;
+            transition: .3s;
+            cursor: pointer;
+        }
+
+        .buttonAgain:hover{
+            opacity: .5;
+        }
+
         .arena {
             width: 800px;
             height: 350px;
@@ -72,12 +91,14 @@
         }
 
         h2 {
+
             padding-bottom: 1rem;
         }
 
         .popup {
             background: rgba(0, 0, 0, .5);
             display: flex;
+            flex-wrap: wrap;
             position: absolute;
             top: 0;
             width: 100%;
@@ -89,6 +110,8 @@
         }
 
         .masage {
+            text-align: center;
+            flex-basis: 100%;
             color: white;
         }
     </style>
@@ -102,6 +125,9 @@
 
         <div class='popup'>
             <h1 class='masage'>coś coś coś</h1>
+            <div class=buttonAgain>
+                Play Again
+            </div>
         </div>
 
     </div>

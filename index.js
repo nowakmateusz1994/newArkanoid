@@ -9,10 +9,14 @@ const info = document.querySelector('.masage');
 const score = document.querySelector(".scores");
 let points = 0;
 
+const playAgain = document.querySelector(".buttonAgain");
+
 const lifes = document.querySelector('.lifes');
 let life = 0;
-const substractLife = function(){
-    if(life>1){
+
+
+const substractLife = function () {
+    if (life > 1) {
         ballPostionX = 395;
         ballPostionY = 225;
         ball.style.left = ballPostionX + 'px';
@@ -22,13 +26,13 @@ const substractLife = function(){
         life--;
         lifes.innerHTML = life;
     }
-    else{
+    else {
         popup.style.zIndex = 99;
         popup.style.opacity = 1;
         info.innerHTML = "You LOSE"
     }
 
-        
+
 }
 
 
@@ -50,6 +54,7 @@ const blockRemove = function () {
 
         if ((ballPostionX >= el.offsetLeft && ballPostionX <= (el.offsetLeft + el.offsetWidth)) && (ballPostionY >= el.offsetTop && ballPostionY <= el.offsetTop + el.offsetHeight)) {
             changeBallDirectionY();
+            changeBallDirectionX();
             el.remove();
             points += 10;
             score.innerHTML = points;
@@ -79,6 +84,8 @@ const changeBallDirectionX = function () {
 
 const changeBallDirectionY = function () {
     ballDirectionY = ballDirectionY * (-1);
+
+}
 }
 
 const deskMove = function (e) {
@@ -125,7 +132,7 @@ const ballMove = function () {
 
     blockRemove();
 
-    if( ballPostionY >= arenaBottom - ballHeight){
+    if (ballPostionY >= arenaBottom - ballHeight) {
         substractLife();
         return;
     }
@@ -140,10 +147,26 @@ const ballMove = function () {
 
 }
 
+const playAgainFunc = function () {
+    if (isTurnOn) {
+        isTurnOn = !isTurnOn;
+        blockBoard.forEach(function (el) {
+            el.remove();
 
+        })
 
+        blockBoard = [];
 
-strat.addEventListener('click', function () {
+        popup.style.zIndex = -1;
+        popup.style.opacity = 0;
+
+        setTimeout(startFunc, 1000)
+    }
+}
+
+playAgain.addEventListener('click', playAgainFunc);
+
+const startFunc = function () {
     if (isTurnOn === false) {
         isTurnOn = !isTurnOn;
         let left = 0;
@@ -168,7 +191,9 @@ strat.addEventListener('click', function () {
 
     }
     setTimeout(ballMove, 10)
-})
+}
+
+strat.addEventListener('click', startFunc)
 
 
 document.addEventListener('keydown', deskMove)
